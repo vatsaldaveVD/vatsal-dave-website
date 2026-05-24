@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -74,8 +74,16 @@
 
     <!-- External JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+      <link rel="stylesheet" href="wip-banner.css" />
   </head>
   <body>
+
+    <!-- Work-In-Progress Banner -->
+    <div class="wip-banner-spacer"></div>
+    <div class="wip-banner" id="wip-banner">
+      <span class="wip-banner-icon">&#9888;</span>
+      <span class="wip-banner-text">Please do not click - Website is still in progress</span>
+    </div>
     <!-- Loading Screen -->
     <div class="loader-overlay">
       <div class="loader-shapes">
@@ -288,10 +296,10 @@
       <section class="hero" id="hero">
         <div class="hero-content">
           <div class="hero-left">
-            <p class="hero-greeting" id="hero-greeting">Hi there! 👋</p>
+            <p class="hero-greeting" id="hero-greeting">Hi there! ðŸ‘‹</p>
             <h1 class="hero-name">I'm Vatsal Dave.</h1>
             <p class="hero-description">
-              Based in Toronto, Canada, I’m a Software Engineer with over 3
+              Based in Toronto, Canada, Iâ€™m a Software Engineer with over 3
               years of experience building and operating production-grade web
               applications. I enjoy working across the stack, designing
               API-driven systems, optimizing performance, and delivering
@@ -609,8 +617,8 @@
               <span class="highlight highlight-cyan"
                 >production-grade web applications</span
               >
-              in real-world SaaS environments. I’ve worked on features end to
-              end — from
+              in real-world SaaS environments. Iâ€™ve worked on features end to
+              end â€” from
               <span class="highlight highlight-green"
                 >technical design and implementation</span
               >
@@ -639,7 +647,7 @@
               >, with experience contributing to
               <span class="highlight highlight-cyan"
                 >code quality, documentation, and best practices</span
-              >. I’m comfortable learning new technologies quickly and enjoy
+              >. Iâ€™m comfortable learning new technologies quickly and enjoy
               building
               <span class="highlight highlight-pink"
                 >clean, maintainable software</span
@@ -665,7 +673,7 @@
                     <h4 class="timeline-title">
                       IELTS Invigilator & Admin @ Centennial College
                     </h4>
-                    <p class="timeline-date">Apr 2024 – Present</p>
+                    <p class="timeline-date">Apr 2024 â€“ Present</p>
                     <p class="timeline-description">
                       Ensured compliance, documentation accuracy, and smooth
                       test-day operations in a high-trust assessment
@@ -687,7 +695,7 @@
                     <h4 class="timeline-title">
                       Engineering Lead (Capstone) @ HRXConnect
                     </h4>
-                    <p class="timeline-date">May 2025 – Aug 2025</p>
+                    <p class="timeline-date">May 2025 â€“ Aug 2025</p>
                     <p class="timeline-description">
                       Led end-to-end development of a gifting platform,
                       designing REST APIs, payment workflows, and coordinating
@@ -709,7 +717,7 @@
                     <h4 class="timeline-title">
                       Event Ambassador @ Humber College
                     </h4>
-                    <p class="timeline-date">May 2025 – Aug 2025</p>
+                    <p class="timeline-date">May 2025 â€“ Aug 2025</p>
                     <p class="timeline-description">
                       Supported large-scale events by coordinating logistics,
                       volunteers, and vendors to ensure smooth execution.
@@ -726,7 +734,7 @@
                     <h4 class="timeline-title">
                       Software Engineer @ Clientjoy
                     </h4>
-                    <p class="timeline-date">Jun 2020 – Sep 2023</p>
+                    <p class="timeline-date">Jun 2020 â€“ Sep 2023</p>
                     <p class="timeline-description">
                       Owned features end to end in a production SaaS platform,
                       building scalable APIs, optimizing performance, and
@@ -744,7 +752,7 @@
                     <h4 class="timeline-title">
                       Software Engineer Intern @ Clientjoy
                     </h4>
-                    <p class="timeline-date">Jan 2020 – Apr 2020</p>
+                    <p class="timeline-date">Jan 2020 â€“ Apr 2020</p>
                     <p class="timeline-description">
                       Contributed to frontend and backend development using
                       React, Vue, and Laravel while building responsive,
@@ -1222,7 +1230,7 @@
                     </h3>
                     <p class="education-school">Humber College</p>
                   </div>
-                  <span class="badge">2024 – 2025</span>
+                  <span class="badge">2024 â€“ 2025</span>
                 </div>
                 <p class="education-location">
                   <i class="fas fa-map-marker-alt"></i> Toronto, Canada
@@ -1235,7 +1243,7 @@
                     <h3 class="education-title">MSc. Information Technology</h3>
                     <p class="education-school">DA-IICT</p>
                   </div>
-                  <span class="badge">2018 – 2020</span>
+                  <span class="badge">2018 â€“ 2020</span>
                 </div>
                 <p class="education-location">
                   <i class="fas fa-map-marker-alt"></i> Gandhinagar, India
@@ -1250,7 +1258,7 @@
                     </h3>
                     <p class="education-school">GLS FCAIT</p>
                   </div>
-                  <span class="badge">2015 – 2018</span>
+                  <span class="badge">2015 â€“ 2018</span>
                 </div>
                 <p class="education-location">
                   <i class="fas fa-map-marker-alt"></i> Ahmedabad, India
@@ -1365,7 +1373,7 @@
               </div>
             </div>
             <div class="footer-bottom-compact">
-              <span>© 2025 Vatsal Dave</span>
+              <span>Â© 2025 Vatsal Dave</span>
               <span
                 >Inspired by
                 <a
@@ -1384,8 +1392,23 @@
       </div>
     </div>
 
+        <!-- WIP Banner click-block script -->
     <script>
-      // Always start at top of page on reload
+      (function () {
+        var banner = document.getElementById("wip-banner");
+        if (!banner) return;
+        banner.addEventListener("click", function (e) {
+          e.stopImmediatePropagation();
+          e.preventDefault();
+          e.stopPropagation();
+        }, true);
+        banner.addEventListener("mousedown", function (e) { e.preventDefault(); }, true);
+        banner.addEventListener("mouseup",   function (e) { e.preventDefault(); }, true);
+        banner.addEventListener("dblclick",  function (e) { e.preventDefault(); }, true);
+      })();
+    </script>
+
+    <script>      // Always start at top of page on reload
       if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
       }
@@ -1894,7 +1917,7 @@
 
       // Matrix Typing Effect for Hero Greeting
       const greetingElement = document.getElementById("hero-greeting");
-      const finalText = "Hi there! 👋";
+      const finalText = "Hi there! ðŸ‘‹";
       const chars =
         "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
 
@@ -1907,7 +1930,7 @@
               if (index < iterations) {
                 return finalText[index];
               }
-              if (char === " " || char === "👋") {
+              if (char === " " || char === "ðŸ‘‹") {
                 return char;
               }
               return chars[Math.floor(Math.random() * chars.length)];
@@ -1938,7 +1961,7 @@
       L.tileLayer(
         "https://watercolormaps.collection.cooperhewitt.org/tile/watercolor/{z}/{x}/{y}.jpg",
         {
-          attribution: "© Stamen Design, © OpenStreetMap contributors",
+          attribution: "Â© Stamen Design, Â© OpenStreetMap contributors",
           maxZoom: 16,
         },
       ).addTo(map);
@@ -2130,3 +2153,5 @@
     </script>
   </body>
 </html>
+
+

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -16,10 +16,28 @@
       rel="stylesheet"
     />
     <!-- p5.js for Snake game -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+        <!-- WIP Banner click-block script -->
+    <script>
+      (function () {
+        var banner = document.getElementById("wip-banner");
+        if (!banner) return;
+        banner.addEventListener("click",    function (e) { e.stopImmediatePropagation(); e.preventDefault();         }, true);
+        banner.addEventListener("mousedown", function (e) { e.preventDefault(); }, true);
+        banner.addEventListener("mouseup",   function (e) { e.preventDefault(); }, true);
+        banner.addEventListener("dblclick",  function (e) { e.preventDefault(); }, true);
+      })();
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+      <link rel="stylesheet" href="wip-banner.css" />
   </head>
 
-  <body>
+  
+    <!-- Work-In-Progress Banner -->
+    <div class="wip-banner-spacer"></div>
+    <div class="wip-banner" id="wip-banner">
+      <span class="wip-banner-icon">&#9888;</span>
+      <span class="wip-banner-text">Please do not click - Website is still in progress</span>
+    </div>
     <div class="terminal">
       <div class="terminal-header">
         <div class="terminal-buttons">
@@ -41,7 +59,7 @@
         <div class="terminal-content">
           <div id="output"></div>
           <div class="input-line">
-            <span class="prompt">➜</span>
+            <span class="prompt">âžœ</span>
             <input type="text" id="command-input" autofocus />
           </div>
         </div>
@@ -95,7 +113,7 @@
         <div class="language-options">
           <div class="language-option" data-lang="en">English</div>
           <div class="language-option" data-lang="de">Deutsch</div>
-          <div class="language-option" data-lang="fr">Français</div>
+          <div class="language-option" data-lang="fr">FranÃ§ais</div>
           <div class="language-option" data-lang="sq">Albanian</div>
         </div>
       </div>
@@ -126,3 +144,6 @@
     <script src="script.js"></script>
   </body>
 </html>
+
+
+

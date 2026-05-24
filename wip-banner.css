@@ -1,0 +1,110 @@
+﻿
+/* =======================================================
+   Work-In-Progress Banner - shared across all pages
+   ======================================================= */
+
+/* Static top spacer so content is not hidden behind the banner */
+.wip-banner-spacer {
+  display: block;
+  height: 44px;
+  width: 100%;
+}
+
+/* Banner bar - fixed at the very top of the page */
+.wip-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 6px 20px;
+  background: #ff6b35;
+  color: #ffffff;
+  font-family: "Space Grotesk", "Space Mono", "Fira Code", "Courier New", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: not-allowed;
+  user-select: none;
+  border-bottom: 3px solid #000000;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+  pointer-events: auto;
+  overflow: hidden;
+}
+
+/* Subtle animated stripe across the banner */
+.wip-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 8px,
+    rgba(0, 0, 0, 0.08) 8px,
+    rgba(0, 0, 0, 0.08) 16px
+  );
+  animation: wip-banner-stripe 22s linear infinite;
+}
+
+@keyframes wip-banner-stripe {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}
+
+/* Icon left of the text */
+.wip-banner-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+  font-style: normal;
+}
+
+.wip-banner-sub {
+  opacity: 0.88;
+  font-weight: 600;
+}
+
+/* Per-page theme overrides */
+body[data-theme="light"] .wip-banner {
+  background: #ff6b35;
+  color: #ffffff;
+  border-bottom-color: #000000;
+}
+body[data-theme="dark"] .wip-banner {
+  background: #ff8c42;
+  color: #1a1a1a;
+  border-bottom-color: #000000;
+}
+
+.wip-banner--cloud {
+  background: #ef4444;
+  color: #ffffff;
+  border-bottom-color: #7f1d1d;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.wip-banner--gamify {
+  background: #eab308;
+  color: #1e1e1e;
+  border-bottom-color: #713f12;
+}
+
+body.terminal-page .wip-banner,
+.terminal-page .wip-banner {
+  background: #cc2200;
+  color: #ffcc00;
+  border-bottom-color: #000000;
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-size: 12px;
+}

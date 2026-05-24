@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 
 <head>
@@ -10,10 +10,28 @@
     <title>Vatsal Dave - Software Engineer</title>
     <link rel="icon" href="image/favicon.png" type="image/x-icon">
     <link href="css/style.css" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="wip-banner.css" />
+  </head>
 
-<body>
-    <script src="script/jquery-3.3.1.min.js"></script>
+
+    <!-- Work-In-Progress Banner -->
+    <div class="wip-banner-spacer"></div>
+    <div class="wip-banner" id="wip-banner">
+      <span class="wip-banner-icon">&#9888;</span>
+      <span class="wip-banner-text">Please do not click - Website is still in progress</span>
+    </div>
+        <!-- WIP Banner click-block script -->
+    <script>
+      (function () {
+        var banner = document.getElementById("wip-banner");
+        if (!banner) return;
+        banner.addEventListener("click",    function (e) { e.stopImmediatePropagation(); e.preventDefault();         }, true);
+        banner.addEventListener("mousedown", function (e) { e.preventDefault(); }, true);
+        banner.addEventListener("mouseup",   function (e) { e.preventDefault(); }, true);
+        banner.addEventListener("dblclick",  function (e) { e.preventDefault(); }, true);
+      })();
+    </script>
+<script src="script/jquery-3.3.1.min.js"></script>
     <script src="script/jquery-ui.min.js"></script>
     <script src="script/detect-browser-device.js"></script>
     <noscript>
@@ -973,3 +991,6 @@
     </div>
     <script src="script/email.js"></script>
     <script src="script/main.js"></script>
+
+
+
